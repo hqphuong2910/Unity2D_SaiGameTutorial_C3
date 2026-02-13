@@ -33,7 +33,8 @@ namespace _Game.Scripts.Ship
 
             var spawnPos = transform.parent.position;
             var spawnRot = transform.parent.rotation;
-            Instantiate(bulletPrefab, spawnPos, spawnRot);
+            var newBullet = Instantiate(bulletPrefab, spawnPos, spawnRot);
+            newBullet.gameObject.SetActive(true);
 
             Debug.Log(nameof(Shooting));
         }
