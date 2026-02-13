@@ -1,13 +1,10 @@
-﻿using System;
-using _Game.Scripts.Core;
+﻿using _Game.Scripts.Core;
 using UnityEngine;
 
 namespace _Game.Scripts.Ship
 {
     public class ShipShooting : MonoBehaviour
     {
-        [SerializeField] private Transform bulletPrefab;
-
         [SerializeField] private bool isShooting;
 
         [SerializeField] private float shootingDelay = 1f;
@@ -31,9 +28,9 @@ namespace _Game.Scripts.Ship
             if (shootingTimer < shootingDelay) return;
             shootingTimer = 0f;
 
-            var spawnPos = transform.parent.position;
-            var spawnRot = transform.parent.rotation;
-            var newBullet = Instantiate(bulletPrefab, spawnPos, spawnRot);
+            var pos = transform.parent.position;
+            var rot = transform.parent.rotation;
+            var newBullet = Spawner.Spawner.Instance.Spawn(pos, rot);
             newBullet.gameObject.SetActive(true);
 
             Debug.Log(nameof(Shooting));

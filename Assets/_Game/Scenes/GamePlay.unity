@@ -330,7 +330,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de4376aeb7d0412f9f6f5c06f48b3343, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 2049644494}
   isShooting: 0
   shootingDelay: 0.5
   shootingTimer: 0
