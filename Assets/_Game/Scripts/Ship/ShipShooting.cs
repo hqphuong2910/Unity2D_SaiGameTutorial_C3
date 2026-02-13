@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using _Game.Scripts.Core;
+using UnityEngine;
 
 namespace _Game.Scripts.Ship
 {
@@ -6,6 +8,11 @@ namespace _Game.Scripts.Ship
     {
         [SerializeField] private bool isShooting;
         [SerializeField] private Transform bulletPrefab;
+
+        private void Update()
+        {
+            CheckIsShooting();
+        }
 
         private void FixedUpdate()
         {
@@ -21,6 +28,11 @@ namespace _Game.Scripts.Ship
             Instantiate(bulletPrefab, spawnPos, spawnRot);
 
             Debug.Log(nameof(Shooting));
+        }
+
+        private void CheckIsShooting()
+        {
+            isShooting = InputManager.Instance.IsFiring;
         }
     }
 }

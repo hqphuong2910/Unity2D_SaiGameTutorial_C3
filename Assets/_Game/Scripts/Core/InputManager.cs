@@ -8,6 +8,8 @@ namespace _Game.Scripts.Core
 
         public Vector3 MouseWorldPosition { get; private set; }
 
+        public bool IsFiring { get; private set; }
+
         private void Awake()
         {
             if (Instance && Instance != this)
@@ -24,11 +26,17 @@ namespace _Game.Scripts.Core
         private void Update()
         {
             UpdateMousePosition();
+            UpdateFiringState();
         }
 
         private void UpdateMousePosition()
         {
             MouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        }
+
+        private void UpdateFiringState()
+        {
+            IsFiring = Input.GetButton("Fire1");
         }
     }
 }
