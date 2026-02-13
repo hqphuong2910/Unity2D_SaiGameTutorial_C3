@@ -7,7 +7,6 @@ namespace _Game.Scripts.Spawner
         public static BulletSpawner Instance { get; private set; }
 
         public const string BulletOne = "Bullet_1";
-        public const string BulletTwo = "Bullet_2";
 
         protected override void Awake()
         {

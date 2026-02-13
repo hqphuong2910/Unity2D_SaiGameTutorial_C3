@@ -32,7 +32,7 @@ namespace _Game.Scripts.Ship
             var pos = transform.parent.position;
             var rot = transform.parent.rotation;
             var newBullet = BulletSpawner.Instance.Spawn(
-                BulletSpawner.BulletTwo, pos, rot);
+                BulletSpawner.BulletOne, pos, rot);
             if (!newBullet) return;
             newBullet.gameObject.SetActive(true);
 
