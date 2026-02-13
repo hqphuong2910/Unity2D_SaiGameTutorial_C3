@@ -7,16 +7,21 @@ namespace _Game.Scripts.Spawner
 {
     public abstract class Spawner : MyBehaviour
     {
-        [SerializeField] private List<Transform> prefabs;
+        [SerializeField] protected List<Transform> prefabs;
+
+        [SerializeField] protected List<Transform> objectPool;
+
+        [SerializeField] protected Transform holder;
 
         protected override void OnLoadComponents()
         {
             base.OnLoadComponents();
 
             LoadPrefabs();
+            LoadHolder();
         }
 
-        private void LoadPrefabs()
+        protected virtual void LoadPrefabs()
         {
             if (prefabs.Count > 0) return;
 
@@ -30,6 +35,13 @@ namespace _Game.Scripts.Spawner
             Debug.Log(transform.name + ": " + nameof(LoadPrefabs), gameObject);
         }
 
+        protected virtual void LoadHolder()
+        {
+            if (holder) return;
+            holder = transform.Find("Holder");
+            Debug.Log(transform.name + ": " + nameof(LoadHolder), gameObject);
+        }
+
         public virtual Transform Spawn(string prefabName, Vector3 pos, Quaternion rot)
         {
             var prefab = GetPrefabByName(prefabName);
@@ -39,13 +51,34 @@ namespace _Game.Scripts.Spawner
                 return null;
             }
 
-            var newPrefab = Instantiate(prefab, pos, rot);
+            var newPrefab = GetObjectFromPool(prefab);
+            newPrefab.SetPositionAndRotation(pos, rot);
+            newPrefab.parent = holder;
             return newPrefab;
         }
 
         protected virtual Transform GetPrefabByName(string prefabName)
         {
             return prefabs.FirstOrDefault(prefab => prefab.name == prefabName);
+        }
+
+        protected virtual Transform GetObjectFromPool(Transform prefab)
+        {
+            foreach (var obj in objectPool.Where(obj => obj.name == prefab.name))
+            {
+                objectPool.Remove(obj);
+                return obj;
+            }
+
+            var newPrefab = Instantiate(prefab);
+            newPrefab.name = prefab.name;
+            return newPrefab;
+        }
+
+        public virtual void Despawn(Transform obj)
+        {
+            obj.gameObject.SetActive(false);
+            objectPool.Add(obj);
         }
     }
 }

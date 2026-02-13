@@ -5,7 +5,7 @@ namespace _Game.Scripts.Despawn
     public class DespawnByDistance : Despawn
     {
         [SerializeField] protected float distanceLimit = 30f;
-        [SerializeField] protected float distance = 0f;
+        [SerializeField] protected float distance;
         [SerializeField] protected Camera mainCamera;
 
         protected override void OnLoadComponents()

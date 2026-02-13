@@ -4,9 +4,8 @@ namespace _Game.Scripts.Spawner
 {
     public class BulletSpawner : Spawner
     {
-        public static BulletSpawner Instance { get; private set; }
-
         public const string BulletOne = "Bullet_1";
+        public static BulletSpawner Instance { get; private set; }
 
         protected override void Awake()
         {

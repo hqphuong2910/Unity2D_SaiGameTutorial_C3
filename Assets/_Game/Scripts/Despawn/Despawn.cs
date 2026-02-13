@@ -1,11 +1,10 @@
 ﻿using _Game.Scripts.Core;
-using UnityEngine;
 
 namespace _Game.Scripts.Despawn
 {
     public abstract class Despawn : MyBehaviour
     {
-        private void FixedUpdate()
+        protected virtual void FixedUpdate()
         {
             Despawning();
         }
