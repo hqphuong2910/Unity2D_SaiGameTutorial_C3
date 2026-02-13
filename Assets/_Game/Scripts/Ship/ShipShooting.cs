@@ -1,4 +1,5 @@
 ﻿using _Game.Scripts.Core;
+using _Game.Scripts.Spawner;
 using UnityEngine;
 
 namespace _Game.Scripts.Ship
@@ -8,7 +9,7 @@ namespace _Game.Scripts.Ship
         [SerializeField] private bool isShooting;
 
         [SerializeField] private float shootingDelay = 1f;
-        [SerializeField] private float shootingTimer = 0f;
+        [SerializeField] private float shootingTimer;
 
         private void Update()
         {
@@ -30,7 +31,9 @@ namespace _Game.Scripts.Ship
 
             var pos = transform.parent.position;
             var rot = transform.parent.rotation;
-            var newBullet = Spawner.Spawner.Instance.Spawn(pos, rot);
+            var newBullet = BulletSpawner.Instance.Spawn(
+                BulletSpawner.BulletTwo, pos, rot);
+            if (!newBullet) return;
             newBullet.gameObject.SetActive(true);
 
             Debug.Log(nameof(Shooting));
