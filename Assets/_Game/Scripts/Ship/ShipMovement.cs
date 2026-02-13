@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using _Game.Scripts.Core;
+using UnityEngine;
 
-namespace _Game.Scripts
+namespace _Game.Scripts.Ship
 {
     public class ShipMovement : MonoBehaviour
     {
@@ -35,7 +36,7 @@ namespace _Game.Scripts
             var diff = targetPosition - transform.parent.position;
             diff.Normalize();
             var rotZ = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-            transform.parent.rotation = Quaternion.Euler(0f, 0f, rotZ + 90);
+            transform.parent.rotation = Quaternion.Euler(0f, 0f, rotZ);
         }
     }
 }

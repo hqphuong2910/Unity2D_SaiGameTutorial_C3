@@ -1,11 +1,10 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace _Game.Scripts
+namespace _Game.Scripts.Ship
 {
     public class ShipShooting : MonoBehaviour
     {
-        [SerializeField] private bool isShooting = false;
+        [SerializeField] private bool isShooting;
         [SerializeField] private Transform bulletPrefab;
 
         private void FixedUpdate()
@@ -17,7 +16,9 @@ namespace _Game.Scripts
         {
             if (!isShooting) return;
 
-            Instantiate(bulletPrefab);
+            var spawnPos = transform.parent.position;
+            var spawnRot = transform.parent.rotation;
+            Instantiate(bulletPrefab, spawnPos, spawnRot);
 
             Debug.Log(nameof(Shooting));
         }
