@@ -6,8 +6,12 @@ namespace _Game.Scripts.Ship
 {
     public class ShipShooting : MonoBehaviour
     {
-        [SerializeField] private bool isShooting;
         [SerializeField] private Transform bulletPrefab;
+
+        [SerializeField] private bool isShooting;
+
+        [SerializeField] private float shootingDelay = 1f;
+        [SerializeField] private float shootingTimer = 0f;
 
         private void Update()
         {
@@ -22,6 +26,10 @@ namespace _Game.Scripts.Ship
         private void Shooting()
         {
             if (!isShooting) return;
+
+            shootingTimer += Time.fixedDeltaTime;
+            if (shootingTimer < shootingDelay) return;
+            shootingTimer = 0f;
 
             var spawnPos = transform.parent.position;
             var spawnRot = transform.parent.rotation;
