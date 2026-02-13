@@ -10,6 +10,14 @@ namespace _Game.Scripts
 
         private void Awake()
         {
+            if (Instance && Instance != this)
+            {
+                Debug.LogError(
+                    "Multiple instances of " + nameof(InputManager) + " found in the scene.\n" +
+                    "Only one could be exists, fix it.");
+                return;
+            }
+
             Instance = this;
         }
 
