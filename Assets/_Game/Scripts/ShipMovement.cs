@@ -9,11 +9,11 @@ namespace _Game.Scripts
 
         private void FixedUpdate()
         {
-            worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            worldPosition = InputManager.Instance.MouseWorldPosition;
             worldPosition.z = 0;
 
-            var newPos = Vector3.Lerp(transform.position, worldPosition, moveSpeed * Time.fixedDeltaTime);
-            transform.position = newPos;
+            var newPos = Vector3.Lerp(transform.parent.position, worldPosition, moveSpeed * Time.fixedDeltaTime);
+            transform.parent.position = newPos;
         }
     }
 }
