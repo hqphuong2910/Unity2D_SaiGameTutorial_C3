@@ -15,6 +15,10 @@ namespace _Game.Scripts.Core
             ResetValue();
         }
 
+        protected virtual void Start()
+        {
+        }
+
         protected virtual void OnLoadComponents()
         {
         }

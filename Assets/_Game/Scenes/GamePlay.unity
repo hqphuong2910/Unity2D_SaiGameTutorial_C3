@@ -790,7 +790,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1684660987}
+  - component: {fileID: 1684660989}
   - component: {fileID: 1684660988}
+  - component: {fileID: 1684660990}
   m_Layer: 0
   m_Name: JunkSpawner
   m_TagString: Untagged
@@ -831,6 +833,32 @@ MonoBehaviour:
   - {fileID: 318875339}
   objectPool: []
   holder: {fileID: 659433495}
+--- !u!114 &1684660989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684660985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1b78752833e4700ad73d1d002c7a122, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  junkSpawner: {fileID: 1684660988}
+--- !u!114 &1684660990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684660985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d6f01a0076946ad93657bec175df639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  junkController: {fileID: 1684660989}
 --- !u!1 &2049644493
 GameObject:
   m_ObjectHideFlags: 0
