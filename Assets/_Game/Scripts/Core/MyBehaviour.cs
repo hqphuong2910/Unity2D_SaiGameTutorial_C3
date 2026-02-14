@@ -19,6 +19,10 @@ namespace _Game.Scripts.Core
         {
         }
 
+        protected virtual void OnEnable()
+        {
+        }
+
         protected virtual void OnLoadComponents()
         {
         }
