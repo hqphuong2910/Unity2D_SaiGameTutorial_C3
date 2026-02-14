@@ -518,7 +518,7 @@ MonoBehaviour:
   prefabs:
   - {fileID: 2049644494}
   objectPool: []
-  holder: {fileID: 0}
+  holder: {fileID: 772099983}
 --- !u!1 &991596493
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,10 +888,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1632364483}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32a382486a5a42cea0c4f74a4a0b2149, type: 3}
+  m_Script: {fileID: 11500000, guid: 41bc19097c0a42d99044a8085f56d8bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceLimit: 30
+  distanceLimit: 25
   distance: 0
   mainCamera: {fileID: 519420031}
 --- !u!1 &1654649376

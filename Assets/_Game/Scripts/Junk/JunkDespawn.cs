@@ -1,20 +1,20 @@
 ﻿using _Game.Scripts.Despawn;
 using _Game.Scripts.Spawner;
 
-namespace _Game.Scripts.Bullet
+namespace _Game.Scripts.Junk
 {
-    public class BulletDespawn : DespawnByDistance
+    public class JunkDespawn : DespawnByDistance
     {
         protected override void DespawnObject()
         {
-            BulletSpawner.Instance.Despawn(transform.parent);
+            JunkSpawner.Instance.Despawn(transform.parent);
         }
 
         protected override void ResetValue()
         {
             base.ResetValue();
 
-            distanceLimit = 30f;
+            distanceLimit = 25f;
         }
     }
 }
