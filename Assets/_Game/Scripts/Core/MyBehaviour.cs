@@ -12,9 +12,14 @@ namespace _Game.Scripts.Core
         protected virtual void Reset()
         {
             OnLoadComponents();
+            ResetValue();
         }
 
         protected virtual void OnLoadComponents()
+        {
+        }
+
+        protected virtual void ResetValue()
         {
         }
     }

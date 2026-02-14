@@ -1,12 +1,12 @@
-﻿namespace _Game.Scripts.Bullet
+﻿namespace _Game.Scripts.Junk
 {
-    public class BulletFly : ParentFly
+    public class JunkFly : ParentFly
     {
         protected override void ResetValue()
         {
             base.ResetValue();
 
-            flySpeed = 10f;
+            flySpeed = 1f;
         }
     }
 }
