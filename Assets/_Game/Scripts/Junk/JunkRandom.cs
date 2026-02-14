@@ -29,9 +29,10 @@ namespace _Game.Scripts.Junk
 
         private void JunkSpawning()
         {
-            var pos = transform.position;
+            var randomPoint = junkController.SpawnPoints.GetRandomPoint();
+            var spawnPos = randomPoint.position;
             var rot = transform.rotation;
-            var junk = junkController.JunkSpawner.Spawn(JunkSpawner.MeteoriteOne, pos, rot);
+            var junk = junkController.JunkSpawner.Spawn(JunkSpawner.MeteoriteOne, spawnPos, rot);
             junk.gameObject.SetActive(true);
             Invoke(nameof(JunkSpawning), 1f);
         }
